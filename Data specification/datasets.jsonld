@@ -8,8 +8,8 @@
     {
       "@id": "mdat:Dataset_AirQuality",
       "@type": "dpv:Dataset",
-      "dct:title": "Μετρήσεις Ατμοσφαιρικής Ρύπανσης Δημοτικού Δικτύου Θεσσαλονίκης (2010–2013)",
-      "dct:description": "Περιλαμβάνει ημερήσιες μετρήσεις συγκεντρώσεων ρύπων (SO₂, NO₂, NO, O₃, PM10, PM2.5, CO) από το δημοτικό δίκτυο σταθμών παρακολούθησης ατμοσφαιρικής ρύπανσης του Δήμου Θεσσαλονίκης για την περίοδο 2010–2013.",
+      "dct:title": "Air Quality Measurements – Thessaloniki Municipal Monitoring Network (2010–2013)",
+      "dct:description": "Contains daily pollutant concentration measurements (SO₂, NO₂, NO, O₃, PM10, PM2.5, CO) from the municipal air-quality monitoring network of the City of Thessaloniki for the period 2010–2013.",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "https://tds.okfn.gr/dataset/airquality-thessaloniki-2010-2013",
       "dpv:hasCategory": "dpv:EnvironmentalData",
@@ -20,38 +20,38 @@
     {
       "@id": "mdat:Dataset_Population2011",
       "@type": "dpv:Dataset",
-      "dct:title": "Μόνιμος Πληθυσμός Δήμου Θεσσαλονίκης (Απογραφή 2011)",
-      "dct:description": "Περιλαμβάνει πληθυσμιακά δεδομένα ανά δημοτική κοινότητα, σύμφωνα με τα αποτελέσματα της Απογραφής 2011 από την ΕΛΣΤΑΤ.",
+      "dct:title": "Resident Population of Thessaloniki Municipality (Census 2011)",
+      "dct:description": "Contains population data per municipal community, based on the 2011 Population-Housing Census by ELSTAT.",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "https://tds.okfn.gr/dataset/population-thessaloniki-2011",
       "dpv:hasCategory": "dpv:DemographicData",
       "dpv:hasSensitivity": "dpv:NonPersonalData",
       "mdat:domainConcepts": ["mdat:PopulationCount", "mdat:AdministrativeDivision"],
-      "mdat:keyProperties": ["Δημοτική Κοινότητα", "Πληθυσμός"]
+      "mdat:keyProperties": ["Municipal_Community", "Population"]
     },
     {
       "@id": "mdat:Dataset_PopulationExtended",
       "@type": ["dpv:Dataset", "dpv:RestrictedData"],
-      "dct:title": "Μόνιμος Πληθυσμός – Εκτεταμένο Σύνολο για τη Μητροπολιτική Περιοχή Θεσσαλονίκης (2011)",
-      "dct:description": "Εκτεταμένο δημογραφικό σύνολο δεδομένων που παρέχεται κατόπιν διαπραγμάτευσης μεταξύ του παρόχου και του ερευνητή, με υψηλότερη χωρική ανάλυση (υποδιαιρέσεις ανά υποδημοτική ενότητα).",
+      "dct:title": "Extended Resident Population Dataset – Thessaloniki Metropolitan Area (2011)",
+      "dct:description": "Extended demographic dataset provided after negotiation between the data provider and the researcher, featuring higher spatial resolution (sub-municipal subdivisions).",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "dct:source": "Internal Data Provision – Negotiated Access (ΕΛΣΤΑΤ)",
+      "dct:source": "Internal Data Provision – Negotiated Access (ELSTAT)",
       "dpv:hasCategory": "dpv:DemographicData",
       "dpv:hasSensitivity": "dpv:Restricted",
       "mdat:domainConcepts": ["mdat:ExtendedPopulationData", "mdat:NegotiatedAccessPolicy"],
-      "mdat:keyProperties": ["Υποενότητα", "Πληθυσμός", "Γεωγραφικός Κωδικός"]
+      "mdat:keyProperties": ["Subunit", "Population", "Geographic_Code"]
     },
     {
       "@id": "mdat:Dataset_DerivedAirQuality",
       "@type": ["dpv:Dataset", "dpv:DerivedData"],
-      "dct:title": "Αποτελέσματα Ανάλυσης Ατμοσφαιρικής Ρύπανσης και Έκθεσης Ανά Κάτοικο (2010–2013)",
-      "dct:description": "Παράγωγο σύνολο δεδομένων που προκύπτει από τον συνδυασμό των μετρήσεων ρύπανσης και των πληθυσμιακών δεδομένων (εκτεταμένων). Περιλαμβάνει δείκτες συγκέντρωσης, συμμόρφωσης με τα όρια ΠΟΥ/ΕΕ και δείκτη επιβάρυνσης ανά κάτοικο.",
+      "dct:title": "Derived Air Quality and Per-Capita Exposure Indicators (2010–2013)",
+      "dct:description": "Derived dataset resulting from the combination of air-quality measurements and (extended) population data. Includes pollutant concentration indicators, WHO/EU compliance checks, and per-capita exposure metrics (Air Pollution Index per Capita – API_pc).",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "Local Analysis Script (Thessaloniki_AirQuality_Workflow.py)",
       "dpv:hasCategory": ["dpv:EnvironmentalData", "dpv:DerivedData"],
       "dpv:hasSensitivity": "dpv:NonPersonalData",
       "mdat:domainConcepts": ["mdat:PollutantExposure", "mdat:AirPollutionIndex", "mdat:DerivedIndicator"],
-      "mdat:keyProperties": ["Ρύπος", "Μέσος Όρος 2010–2013", "Πληθυσμός", "Ρύποι ανά Κάτοικο", "Κατάσταση"]
+      "mdat:keyProperties": ["Pollutant", "Mean_2010_2013", "Population", "Pollution_per_Capita", "Compliance_Status"]
     }
   ]
 }
