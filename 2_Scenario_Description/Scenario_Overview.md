@@ -14,7 +14,7 @@ It combines:
 
 ## Negotiation & Graded Access
 
-During the analytical phase, the **Researcher** determined that the initial population dataset did not provide the required **spatial resolution** to correctly associate population figures with individual air-quality stations.  
+During the analytical phase, the **Researcher**  that the initial population dataset did not provide the required **spatial resolution** to correctly associate population figures with individual air-quality stations.  
 To ensure accurate exposure analysis, the Researcher initiated a **data negotiation process** with the **Data Provider**.
 
 Through this negotiation:
@@ -23,8 +23,6 @@ Through this negotiation:
 3. Upon agreement, the **Data Provider** granted the Researcher access to an **extended dataset** titled  
    **“resident_population_census2011-extended thessaloniki.xlsx”**,  
    containing more detailed demographic segmentation aligned with the municipal sub-divisions.
-
-This negotiation illustrates the **governance and access-management dimension** of data spaces, where collaboration and trust enable the controlled sharing of higher-resolution data for legitimate analytical purposes.
 
 ---
 
