@@ -31,7 +31,7 @@ Through this negotiation:
 | Role | Description | Ontology Class |
 |------|--------------|----------------|
 | **Data Provider** | Governs official datasets, defines access policies, and manages data-sharing negotiations. | `dpv:DataController`, `dpv:Authority`, `dpv:AccessControl` |
-| **Researcher** | Requests access to restricted datasets, uses data for environmental analysis. | `dpv:DataSubjectRepresentative`, `dpv:DataUser`, `odrl:assignee` |
+| **Researcher** | Requests access to restricted datasets, uses data for environmental analysis. | `dpv:DataUser`, `odrl:assignee` |
 | **Data Analyst** | Performs transformations, aggregation, and visualization using Python scripts. | `dpv:Processor`, `dpv:DataAnalyst`, `odrl:operator` |
 
 ---
@@ -43,7 +43,7 @@ Through this negotiation:
 | `dpv:` | https://w3id.org/dpv# | Data Privacy Vocabulary 2.2 (processes, data categories, roles) |
 | `odrl:` | http://www.w3.org/ns/odrl/2/ | ODRL 2.2 – usage permissions, prohibitions, and duties |
 | `dpv-pd:` | https://w3id.org/dpv/dpv-pd# | DPV extension for personal/demographic data |
-| `mdat:` | https://mdat.upcast.eu/ns# | MDAT domain extensions for Thessaloniki Air Quality Scenario |
+| `mdat:` | https://mdat.upcast/# | MDAT domain extensions for Thessaloniki Air Quality Scenario |
 
 ---
 
@@ -74,7 +74,23 @@ Through this negotiation:
 | 10 | Share derived data and visualizations under open license. | `dpv:Share`, `dpv:Disclose`, `dpv:DerivedData` | `odrl:distribute`, `odrl:reproduce` | Data Provider / Researcher |
 
 ---
+## Ontology Action Mapping Array (Execution Order Aligned)
 
+| Element / Description | DPV Term | ODRL Term | Proposed Custom Term (mdat:) | Notes / Usage |
+|------------------------|----------|------------|-------------------------------|---------------|
+| **Negotiate and authorize access** | `dpv:Authorise`, `dpv:AccessControl`, `dpv:ConsentManagement` | `odrl:grant`, `odrl:obtainConsent` | `mdat:NegotiatedAccessPolicy` | Formal graded-access agreement between provider and researcher. |
+| **Load air-quality and population datasets** | `dpv:Collect` | `odrl:use` |  | Read Excel datasets for analysis. |
+| **Normalize and clean data** | `dpv:Transform`, `dpv:Clean`, `dpv:Standardise` | `odrl:modify` |  | Harmonize fields and measurement units. |
+| **Compute mean pollutant concentrations** | `dpv:Aggregate`, `dpv:Derive` | `odrl:derive` | `mdat:CalculateMeanPollutant` | Calculate 2010–2013 averages per monitoring station. |
+| **Map stations to districts** | `dpv:Combine`, `dpv:Transform` | `odrl:use`, `odrl:modify` | `mdat:StationDistrictMapping` | Associate stations with municipal districts. |
+| **Calculate pollution per capita** | `dpv:Derive`, `dpv:Aggregate` | `odrl:derive`, `odrl:aggregate` | `mdat:ExposureIndicator` | Compute pollutant exposure per inhabitant. |
+| **Evaluate compliance with WHO/EU limits** | `dpv:EvaluateRisk`, `dpv:AssessImpact` | `odrl:analyse` | `mdat:PollutantLimitCheck` | Determine exceedances of reference limits. |
+| **Store analytical results** | `dpv:Store`, `dpv:Use` | `odrl:reproduce`, `odrl:store` |  | Export Excel outputs. |
+| **Generate visualizations** | `dpv:Visualise`, `dpv:Use` | `odrl:display`, `odrl:reproduce` |  | Create graphs for pollutants and exposure. |
+| **Interpret and report results** | `dpv:Analyse`, `dpv:Interpret`, `dpv:Report` | `odrl:analyse`, `odrl:present` | `mdat:DerivedIndicator` | Evaluate per-capita impact and interpret results. |
+| **Share derived data and visuals** | `dpv:Share`, `dpv:Disclose`, `dpv:DerivedData` | `odrl:distribute`, `odrl:reproduce` |  | Publish open outputs under CC BY-NC 4.0. |
+
+---
 ## Indicators
 
 | Indicator | Description | DPV Class | Unit |
