@@ -113,7 +113,7 @@ def plot_pollutant_by_district(df, outdir):
         for bar, val in zip(bars, sub["Μέσος Όρος 2010–2013"]):
             plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, f"{val:.1f}", ha="center", va="bottom", fontsize=9)
         if pollutant in LIMITS:
-            plt.axhline(LIMITS[pollutant], color="orange", linestyle="--", label=f"Όριο ΠΟΥ/ΕΕ: {LIMITS[pollutant]} {'mg/m³' if pollutant=='CO' else 'μg/m³'}")
+            plt.axhline(LIMITS[pollutant], color="orange", linestyle="--", label=f"Όριο ΕΕ: {LIMITS[pollutant]} {'mg/m³' if pollutant=='CO' else 'μg/m³'}")
         plt.title(f"{pollutant} – Μέσος Όρος 2010–2013 ανά Δημοτική Κοινότητα")
         plt.ylabel("Συγκέντρωση")
         plt.xlabel("Δημοτική Κοινότητα")
@@ -181,7 +181,7 @@ def main():
     # Υπολογισμός ρύπων ανά κάτοικο (μόνο συνολικά)
     overall_means["Ρύποι ανά κάτοικο"] = overall_means["Μέσος Όρος 2010–2013"] / overall_means["Πληθυσμός"]
 
-    # Έλεγχος υπέρβασης ΠΟΥ/ΕΕ
+    # Έλεγχος υπέρβασης ΕΕ
     overall_means["Κατάσταση"] = overall_means.apply(check_pollutant_status, axis=1)
 
     mapping_df = pd.DataFrame({
