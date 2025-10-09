@@ -39,10 +39,6 @@ Through this negotiation:
 
 - All **DPV terms** are verified against [DPV 2.2](https://w3id.org/dpv/2.2/dpv#).  
 - All **ODRL actions** are taken from the official [ODRL Core Vocabulary](https://www.w3.org/ns/odrl/2/).  
-- Policy negotiation (Step 1) is represented conceptually via `dpv:AuthorisationProcedure` and `dpv:NegotiateContract`.  
-- Analytical and reporting steps (7–9) correctly use `odrl:analyze`, `odrl:present`, and `dpv:Analyse`.  
-- The mapping ensures **semantic interoperability** and **policy traceability** within the MDAT framework.
-
 ---
 
 ## Datasets (Ontology Classification)
