@@ -8,20 +8,20 @@
     {
       "@id": "mdat:Dataset_AirQuality",
       "@type": "dpv:Dataset",
-      "dct:title": "Air Quality Measurements – Thessaloniki Municipal Monitoring Network (2010–2013)",
-      "dct:description": "Contains daily pollutant concentration measurements (SO₂, NO₂, NO, O₃, PM10, PM2.5, CO) from the municipal air-quality monitoring network of the City of Thessaloniki for the period 2010–2013.",
+      "dct:title": "metriseis_atmosfairikis_rypansis_dimotikoy_diktyoy_2010_2013",
+      "dct:description": "Contains daily pollutant concentration measurements (SO₂, NO₂, NO, O₃, PM10, PM2.5, CO) from the municipal air-quality monitoring network of the City of Thessaloniki for the period 2010–2013. The dataset provides essential input for analyzing pollution trends and environmental exposure in the metropolitan area.",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "https://tds.okfn.gr/product/36",
       "dpv:hasCategory": "dpv:EnvironmentalData",
       "dpv:hasSensitivity": "dpv:NonPersonalData",
       "mdat:domainConcepts": ["mdat:AirPollutant", "mdat:MonitoringStation"],
-      "mdat:keyProperties": ["date", "station_name", "pollutant", "value"]
+      "mdat:keyProperties": ["Date", "Station", "Pollutant", "Value"]
     },
     {
       "@id": "mdat:Dataset_Population2011",
       "@type": "dpv:Dataset",
-      "dct:title": "Resident Population of Thessaloniki Municipality (Census 2011)",
-      "dct:description": "Contains population data per municipal community, based on the 2011 Population-Housing Census by ELSTAT.",
+      "dct:title": "resident_population_census2011_Thessaloniki_metropolitan",
+      "dct:description": "Contains official population data per municipal community, based on the 2011 Population and Housing Census conducted by the Hellenic Statistical Authority (ELSTAT). Serves as the demographic baseline for per-capita pollution indicator calculations.",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "https://tds.okfn.gr/dataset/209",
       "dpv:hasCategory": "dpv:DemographicData",
@@ -32,8 +32,8 @@
     {
       "@id": "mdat:Dataset_PopulationExtended",
       "@type": ["dpv:Dataset", "dpv:RestrictedData"],
-      "dct:title": "Extended Resident Population Dataset – Thessaloniki Metropolitan Area (2011)",
-      "dct:description": "Extended demographic dataset provided after negotiation between the data provider and the researcher, featuring higher spatial resolution (sub-municipal subdivisions).",
+      "dct:title": "resident_population_census2011-extended thessaloniki",
+      "dct:description": "Extended demographic dataset provided after negotiation between the Data Provider (ELSTAT) and the Researcher, featuring higher spatial resolution (sub-municipal subdivisions). Enables more accurate mapping of population density and exposure to air pollution. Distributed under controlled access according to the MDAT graded access policy.",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "Internal Data Provision – Negotiated Access (MDAT)",
       "dpv:hasCategory": "dpv:DemographicData",
@@ -44,8 +44,8 @@
     {
       "@id": "mdat:Dataset_DerivedAirQuality",
       "@type": ["dpv:Dataset", "dpv:DerivedData"],
-      "dct:title": "Derived Air Quality and Per-Capita Exposure Indicators (2010–2013)",
-      "dct:description": "Derived dataset resulting from the combination of air-quality measurements and (extended) population data. Includes pollutant concentration indicators, WHO/EU compliance checks, and per-capita exposure metrics (Air Pollution Index per Capita – API_pc).",
+      "dct:title": "atmospheric_analysis_thessaloniki",
+      "dct:description": "Derived dataset created through the integration of air-quality measurements and extended population data. Includes mean pollutant concentrations (2010–2013), WHO/EU compliance evaluations, and per-capita exposure metrics (Air Pollution Index per Capita – API_pc).",
       "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "dct:source": "Local Analysis Script (Thessaloniki_AirQuality_Workflow.py)",
       "dpv:hasCategory": ["dpv:EnvironmentalData", "dpv:DerivedData"],
