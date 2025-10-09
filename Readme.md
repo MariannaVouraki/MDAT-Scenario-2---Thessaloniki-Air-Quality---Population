@@ -63,12 +63,12 @@ Through this negotiation:
 | 1 | Negotiate and authorize access to D3 (extended dataset). | `dpv:Access`, `dpv:AccessControlMethod`, `dpv:AuthorisationProcedure`, `dpv:NegotiateContract` | *(policy-level negotiation, no direct ODRL action)* | Data Provider ↔ Researcher |
 | 2 | Collect open environmental data (pollution readings). | `dpv:Collect`, `dpv:Access`, `mdat:EnvironmentalData` | `odrl:use` | Data Analyst |
 | 3 | Collect demographic data (extended version). | `dpv:Collect`, `dpv:Access`, `mdat:DemographicData`, `dpv:RestrictedData` | `odrl:use` | Data Analyst |
-| 4 | Clean and normalize both datasets (remove inconsistencies, harmonize units). | `dpv:Transform`, `dpv:Standardise` | `odrl:derive` | Data Analyst |
+| 4 | Clean and normalize both datasets (remove inconsistencies, harmonize units). | `dpv:Transform` | `odrl:derive` | Data Analyst |
 | 5 | Aggregate and compute mean pollutant levels (2010–2013). | `dpv:Aggregate`, `dpv:Derive` | `odrl:derive` | Data Analyst |
 | 6 | Merge datasets and compute pollutant-per-capita ratios. | `dpv:Combine`, `dpv:Aggregate`, `dpv:Derive` | `odrl:aggregate` | Data Analyst |
-| 7 | Assess compliance with WHO/EU limits. | `dpv:Assess`, `dpv:EvaluateRisk` | `odrl:analyze` | Data Analyst |
+| 7 | Assess compliance with WHO/EU limits. | `dpv:Assess`,  | `odrl:analyze` | Data Analyst |
 | 8 | Generate graphs and visual summaries. | `dpv:Visualise`, `dpv:Use` | `odrl:display`, `odrl:reproduce` | Data Analyst |
-| 9 | Interpret and report per-capita exposure findings. | `dpv:Analyse`, `dpv:Report` | `odrl:present` | Researcher |
+| 9 | Interpret and report per-capita exposure findings. | `dpv:Analyse` | `odrl:present` | Researcher |
 | 10 | Share derived data and visualizations under open license. | `dpv:Share`, `dpv:Disclose`, `dpv:DerivedData` | `odrl:distribute` | Data Provider / Researcher |
 
 ---
@@ -79,14 +79,14 @@ Through this negotiation:
 |------------------------|-----------|------------|--------------------------------|----------------|
 | **Negotiate and authorize access** | `dpv:Access`, `dpv:AccessControlMethod`, `dpv:AuthorisationProcedure`, `dpv:NegotiateContract` | *(policy-level)* | `mdat:NegotiatedAccessPolicy` | Formal graded-access agreement between provider and researcher. |
 | **Load air-quality and population datasets** | `dpv:Collect`, `dpv:Access` | `odrl:use` |  | Read Excel datasets for analysis. |
-| **Normalize and clean data** | `dpv:Transform`, `dpv:Standardise` | `odrl:derive` |  | Harmonize fields and measurement units. |
+| **Normalize and clean data** | `dpv:Transform` | `odrl:derive` |  | Harmonize fields and measurement units. |
 | **Compute mean pollutant concentrations** | `dpv:Aggregate`, `dpv:Derive` | `odrl:derive` | `mdat:CalculateMeanPollutant` | Calculate 2010–2013 averages per monitoring station. |
 | **Map stations to districts** | `dpv:Combine`, `dpv:Transform` | `odrl:aggregate` | `mdat:StationDistrictMapping` | Associate stations with municipal districts. |
 | **Calculate pollution per capita** | `dpv:Aggregate`, `dpv:Derive` | `odrl:aggregate` | `mdat:ExposureIndicator` | Compute pollutant exposure per inhabitant. |
-| **Evaluate compliance with WHO/EU limits** | `dpv:Assess`, `dpv:EvaluateRisk` | `odrl:analyze` | `mdat:PollutantLimitCheck` | Determine exceedances of reference limits. |
+| **Evaluate compliance with WHO/EU limits** | `dpv:Assess` | `odrl:analyze` | `mdat:PollutantLimitCheck` | Determine exceedances of reference limits. |
 | **Store analytical results** | `dpv:Store`, `dpv:Use` | `odrl:reproduce` |  | Export Excel outputs. |
 | **Generate visualizations** | `dpv:Visualise`, `dpv:Use` | `odrl:display`, `odrl:reproduce` |  | Create graphs for pollutants and exposure. |
-| **Interpret and report results** | `dpv:Analyse`, `dpv:Report` | `odrl:present` | `mdat:DerivedIndicator` | Evaluate per-capita impact and interpret results. |
+| **Interpret and report results** | `dpv:Analyse`| `odrl:present` | `mdat:DerivedIndicator` | Evaluate per-capita impact and interpret results. |
 | **Share derived data and visuals** | `dpv:Share`, `dpv:Disclose`, `dpv:DerivedData` | `odrl:distribute` |  | Publish open outputs under CC BY-NC 4.0. |
 
 ---

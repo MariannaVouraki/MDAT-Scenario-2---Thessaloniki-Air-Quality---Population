@@ -12,7 +12,7 @@ Reads pollutant concentration data from the municipal monitoring Excel file and 
 **Code Functions:**  
 `read_pollution_sheets()`, `normalize_columns()`
 
-**DPV Process:** `dpv:Collect`, `dpv:Transform`, `dpv:Standardise`  
+**DPV Process:** `dpv:Collect`, `dpv:Transform`  
 **ODRL Action:** `odrl:use`, `odrl:derive`  
 **Actor:** Data Analyst
 
@@ -77,7 +77,7 @@ Checks each pollutant against WHO/EU thresholds and labels as “within” or �
 **Code Function:**  
 `check_pollutant_status()`
 
-**DPV Process:** `dpv:Assess`, `dpv:EvaluateRisk`  
+**DPV Process:** `dpv:Assess`  
 **ODRL Action:** `odrl:analyze`  
 **Actor:** Data Analyst
 
@@ -113,7 +113,7 @@ Creates graphs for pollutant levels per district and total pollution per capita.
 **Description:**  
 The Researcher interprets visual results and numerical outputs to identify areas with higher environmental stress.  
 
-**DPV Process:** `dpv:Analyse`, `dpv:Report`, `mdat:DerivedIndicator`  
+**DPV Process:** `dpv:Analyse`, `mdat:DerivedIndicator`  
 **ODRL Action:** `odrl:analyze`, `odrl:present`  
 **Actor:** Researcher
 
