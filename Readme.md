@@ -17,8 +17,8 @@ During the analytical phase, the **Researcher** found that the initial populatio
 To ensure accurate exposure analysis, the Researcher initiated a **data negotiation process** with the **Data Provider**.
 
 Through this negotiation:
-1. The **Researcher** justified the scientific need for finer-grained demographic data at the sub-municipal level (sub-departments of the Metropolitan Area of Thessaloniki).  
-2. The **Data Provider**, acting as the custodian of the demographic dataset, reviewed the request and applied a **graded-access policy**, defining terms of controlled reuse, privacy protection, and citation.  
+1. The **Researcher** justified the scientific need for finer-grained demographic data at the sub-municipal level.  
+2. The **Data Provider**, acting as custodian of the dataset, reviewed the request and applied a **graded-access policy**, defining terms of controlled reuse, privacy protection, and citation.  
 3. Upon agreement, the **Data Provider** granted the Researcher access to an **extended dataset** titled  
    **`resident_population_census2011-extended thessaloniki.xlsx`**,  
    containing more detailed demographic segmentation aligned with the municipal sub-divisions.
@@ -32,7 +32,6 @@ Through this negotiation:
 | **Data Provider** | Governs official datasets, defines access policies, and manages data-sharing negotiations. | `dpv:DataController`, `dpv:Authority`, `dpv:AccessControlMethod` |
 | **Researcher** | Requests access to restricted datasets and interprets analytical results for policy insights. | `dpv:Recipient` (Purpose: `dpv:ResearchAndDevelopment`), `odrl:assignee` |
 | **Data Analyst** | Performs transformations, aggregation, and visualization using Python scripts. | `dpv:DataProcessor`, `odrl:operator` |
-
 
 ---
 
@@ -48,12 +47,12 @@ Through this negotiation:
 
 ## Datasets (Ontology Classification)
 
-| ID | Title | Category (DPV) | Format | License | Access |
-|----|--------|----------------|---------|----------|--------|
-| D1 | `metriseis_atmosfairikis_rypansis_dimotikoy_diktyoy_2010_2013.xlsx` | `dpv:EnvironmentalData` | Excel (.xlsx) | ODbL 1.0 | Public |
-| D2 | `resident_population_census2011_Thessaloniki_metropolitan.xlsx` | `dpv:DemographicData` | Excel (.xlsx) | ODbL 1.0 | Public |
-| D3 | `resident_population_census2011-extended thessaloniki.xlsx` | `dpv:DemographicData`, `dpv:RestrictedData`, `mdat:ExtendedPopulationData` | Excel (.xlsx) | Controlled Access | Negotiated |
-| D4 | `atmospheric_analysis_thessaloniki.xlsx`, PNG graphs | `dpv:DerivedData`, `dpv:VisualisationData` | Excel / PNG | CC BY-NC 4.0 | Open Results |
+| ID | Title | Category | Base DPV Type | License | Access |
+|----|--------|-----------|---------------|----------|--------|
+| D1 | `metriseis_atmosfairikis_rypansis_dimotikoy_diktyoy_2010_2013.xlsx` | `mdat:EnvironmentalData` | `dpv:NonPersonalData` | ODbL 1.0 | Public |
+| D2 | `resident_population_census2011_Thessaloniki_metropolitan.xlsx` | `mdat:DemographicData` | `dpv:NonPersonalData` | ODbL 1.0 | Public |
+| D3 | `resident_population_census2011-extended thessaloniki.xlsx` | `mdat:DemographicData`, `dpv:RestrictedData`, `mdat:ExtendedPopulationData` | `dpv:NonPersonalData` | Controlled Access | Negotiated |
+| D4 | `atmospheric_analysis_thessaloniki.xlsx`, PNG graphs | `dpv:DerivedData`, `mdat:ExposureIndicator` | `dpv:NonPersonalData` | CC BY-NC 4.0 | Open Results |
 
 ---
 
@@ -62,8 +61,8 @@ Through this negotiation:
 | Step | Description | DPV Process | ODRL Action | Actor |
 |------|--------------|--------------|--------------|--------|
 | 1 | Negotiate and authorize access to D3 (extended dataset). | `dpv:Access`, `dpv:AccessControlMethod`, `dpv:AuthorisationProcedure`, `dpv:NegotiateContract` | *(policy-level negotiation, no direct ODRL action)* | Data Provider ↔ Researcher |
-| 2 | Collect open environmental data (pollution readings). | `dpv:Collect`, `dpv:Access`, `dpv:EnvironmentalData` | `odrl:use` | Data Analyst |f
-| 3 | Collect demographic data (extended version). | `dpv:Collect`, `dpv:Access`, `dpv:DemographicData`, `dpv:RestrictedData` | `odrl:use` | Data Analyst |
+| 2 | Collect open environmental data (pollution readings). | `dpv:Collect`, `dpv:Access`, `mdat:EnvironmentalData` | `odrl:use` | Data Analyst |
+| 3 | Collect demographic data (extended version). | `dpv:Collect`, `dpv:Access`, `mdat:DemographicData`, `dpv:RestrictedData` | `odrl:use` | Data Analyst |
 | 4 | Clean and normalize both datasets (remove inconsistencies, harmonize units). | `dpv:Transform`, `dpv:Standardise` | `odrl:derive` | Data Analyst |
 | 5 | Aggregate and compute mean pollutant levels (2010–2013). | `dpv:Aggregate`, `dpv:Derive` | `odrl:derive` | Data Analyst |
 | 6 | Merge datasets and compute pollutant-per-capita ratios. | `dpv:Combine`, `dpv:Aggregate`, `dpv:Derive` | `odrl:aggregate` | Data Analyst |
@@ -109,8 +108,10 @@ Through this negotiation:
 |----------|--------------|
 | `mdat:AirPollutant` | Represents a measurable pollutant (SO₂, NO₂, PM₂.₅, etc.). |
 | `mdat:MonitoringStation` | Physical location of air-quality data collection. |
+| `mdat:EnvironmentalData` | Non-personal dataset of air-pollutant measurements. |
+| `mdat:DemographicData` | Aggregated population or community-level dataset. |
 | `mdat:ExtendedPopulationData` | High-resolution demographic dataset shared under negotiated access. |
-| `mdat:ExposureIndicator` | Pollutant load per inhabitant (μg/m³ / person). |
+| `mdat:ExposureIndicator` | Pollutant load per inhabitant (μg/m³/person). |
 | `mdat:AirPollutionIndex` | Composite indicator summarizing total exposure per capita. |
 | `mdat:DerivedIndicator` | Output metric derived from environmental and demographic data. |
 | `mdat:NegotiatedAccessPolicy` | Policy describing graded access and reuse conditions between provider and researcher. |
@@ -120,7 +121,7 @@ Through this negotiation:
 ## Purpose & Policy Relevance
 This scenario demonstrates how **open and controlled-access datasets** can be semantically integrated under **DPV and ODRL governance models** to:
 - Quantify **urban air-quality exposure** at district and per-capita levels.  
-- Illustrate the **negotiation and graded access** process within data spaces.  
+- Illustrate the **negotiation and graded-access process** within data spaces.  
 - Support **transparent, policy-relevant environmental assessments** in line with the **MDAT Pilot** objectives.  
 
 ---
