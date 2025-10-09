@@ -13,7 +13,7 @@ Reads pollutant concentration data from the municipal monitoring Excel file and 
 `read_pollution_sheets()`, `normalize_columns()`
 
 **DPV Process:** `dpv:Collect`, `dpv:Transform`, `dpv:Standardise`  
-**ODRL Action:** `odrl:use`, `odrl:modify`  
+**ODRL Action:** `odrl:use`, `odrl:derive`  
 **Actor:** Data Analyst
 
 ---
@@ -52,7 +52,7 @@ Maps each monitoring station to its corresponding municipal district using prede
 `STATION_TO_AREA_ADMIN` dictionary + merge with population data  
 
 **DPV Process:** `dpv:Combine`, `dpv:Transform`  
-**ODRL Action:** `odrl:use`, `odrl:modify`  
+**ODRL Action:** `odrl:use`, `odrl:derive`  
 **Actor:** Data Analyst
 
 ---
@@ -77,8 +77,8 @@ Checks each pollutant against WHO/EU thresholds and labels as “within” or �
 **Code Function:**  
 `check_pollutant_status()`
 
-**DPV Process:** `dpv:EvaluateRisk`, `dpv:AssessImpact`  
-**ODRL Action:** `odrl:analyse`  
+**DPV Process:** `dpv:Assess`, `dpv:EvaluateRisk`  
+**ODRL Action:** `odrl:analyze`  
 **Actor:** Data Analyst
 
 ---
@@ -91,7 +91,7 @@ Writes mapping and computed results to Excel output (`atmospheric_analysis_thess
 `pd.ExcelWriter(outxlsx)`  
 
 **DPV Process:** `dpv:Store`, `dpv:Use`  
-**ODRL Action:** `odrl:reproduce`, `odrl:store`  
+**ODRL Action:** `odrl:reproduce`  
 **Actor:** Data Analyst
 
 ---
@@ -114,7 +114,7 @@ Creates graphs for pollutant levels per district and total pollution per capita.
 The Researcher interprets visual results and numerical outputs to identify areas with higher environmental stress.  
 
 **DPV Process:** `dpv:Analyse`, `dpv:Report`, `mdat:DerivedIndicator`  
-**ODRL Action:** `odrl:analyse`, `odrl:present`  
+**ODRL Action:** `odrl:analyze`, `odrl:present`  
 **Actor:** Researcher
 
 ---
@@ -133,4 +133,4 @@ The derived datasets and visualizations are published as open results under **CC
 The Python workflow operationalizes the scenario’s semantic model by:
 - Integrating **open** and **restricted** datasets (D1–D3)  
 - Deriving exposure indicators (D4)  
-- Ensuring **traceability and policy alignment** through DPV + ODRL mappings
+- Ensuring **traceability and policy alignment** through **DPV + ODRL** mappings
