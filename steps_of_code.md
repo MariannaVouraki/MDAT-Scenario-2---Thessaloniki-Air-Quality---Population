@@ -70,9 +70,9 @@ Divides mean pollutant values by district population to estimate pollution expos
 
 ---
 
-### 🧩 Step 6 — Evaluate Compliance with WHO/EU Limits
+### 🧩 Step 6 — Evaluate Compliance with EU Limits
 **Description:**  
-Checks each pollutant against WHO/EU thresholds and labels as “within” or “exceeded”.  
+Checks each pollutant against EU thresholds and labels as “within” or “exceeded”.  
 
 **Code Function:**  
 `check_pollutant_status()`

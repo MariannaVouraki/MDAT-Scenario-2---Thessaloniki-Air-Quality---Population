@@ -22,7 +22,7 @@ The **Data Analyst**:
 
 ### Evaluation
 The **Researcher**:
-- Reviews pollutant levels against WHO/EU thresholds.  
+- Reviews pollutant levels against EU thresholds.  
 - Interprets per-capita exposure and identifies areas with higher environmental stress.  
 - Links findings to data-driven urban and environmental policy recommendations.
 
