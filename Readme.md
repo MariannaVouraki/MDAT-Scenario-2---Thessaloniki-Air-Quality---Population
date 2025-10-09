@@ -30,8 +30,9 @@ Through this negotiation:
 | Role | Description | Ontology Class |
 |------|--------------|----------------|
 | **Data Provider** | Governs official datasets, defines access policies, and manages data-sharing negotiations. | `dpv:DataController`, `dpv:Authority`, `dpv:AccessControlMethod` |
-| **Researcher** | Requests access to restricted datasets, uses data for environmental analysis. | `dpv:DataUser`, `odrl:assignee` |
-| **Data Analyst** | Performs transformations, aggregation, and visualization using Python scripts. | `dpv:Processor`, `dpv:DataAnalyst`, `odrl:operator` |
+| **Researcher** | Requests access to restricted datasets and interprets analytical results for policy insights. | `dpv:Recipient` (Purpose: `dpv:ResearchAndDevelopment`), `odrl:assignee` |
+| **Data Analyst** | Performs transformations, aggregation, and visualization using Python scripts. | `dpv:DataProcessor`, `odrl:operator` |
+
 
 ---
 
@@ -61,7 +62,7 @@ Through this negotiation:
 | Step | Description | DPV Process | ODRL Action | Actor |
 |------|--------------|--------------|--------------|--------|
 | 1 | Negotiate and authorize access to D3 (extended dataset). | `dpv:Access`, `dpv:AccessControlMethod`, `dpv:AuthorisationProcedure`, `dpv:NegotiateContract` | *(policy-level negotiation, no direct ODRL action)* | Data Provider ↔ Researcher |
-| 2 | Collect open environmental data (pollution readings). | `dpv:Collect`, `dpv:Access`, `dpv:EnvironmentalData` | `odrl:use` | Data Analyst |
+| 2 | Collect open environmental data (pollution readings). | `dpv:Collect`, `dpv:Access`, `dpv:EnvironmentalData` | `odrl:use` | Data Analyst |f
 | 3 | Collect demographic data (extended version). | `dpv:Collect`, `dpv:Access`, `dpv:DemographicData`, `dpv:RestrictedData` | `odrl:use` | Data Analyst |
 | 4 | Clean and normalize both datasets (remove inconsistencies, harmonize units). | `dpv:Transform`, `dpv:Standardise` | `odrl:derive` | Data Analyst |
 | 5 | Aggregate and compute mean pollutant levels (2010–2013). | `dpv:Aggregate`, `dpv:Derive` | `odrl:derive` | Data Analyst |
